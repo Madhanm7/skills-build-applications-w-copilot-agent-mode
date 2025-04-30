@@ -31,10 +31,17 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_url = 'https://super-disco-7vgj7r67v79f7g5-8000.app.github.dev/'
+    local_url = 'http://localhost:8000/'
     return Response({
-        'users': '/api/users/',
-        'teams': '/api/teams/',
-        'activity': '/api/activity/',
-        'workouts': '/api/workouts/',
-        'leaderboard': '/api/leaderboard/',
+        'users': codespace_url + 'api/users/?format=api',
+        'teams': codespace_url + 'api/teams/?format=api',
+        'activity': codespace_url + 'api/activity/?format=api',
+        'workouts': codespace_url + 'api/workouts/?format=api',
+        'leaderboard': codespace_url + 'api/leaderboard/?format=api',
+        'users_local': local_url + 'api/users/?format=api',
+        'teams_local': local_url + 'api/teams/?format=api',
+        'activity_local': local_url + 'api/activity/?format=api',
+        'workouts_local': local_url + 'api/workouts/?format=api',
+        'leaderboard_local': local_url + 'api/leaderboard/?format=api',
     })
